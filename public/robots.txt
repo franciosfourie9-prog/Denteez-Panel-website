@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Allow indexing of all content
+Disallow:
+
+# Sitemap location
+Sitemap: https://denteezpanelbeating.co.za/sitemap.xml

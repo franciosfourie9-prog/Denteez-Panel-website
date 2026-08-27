@@ -1,0 +1,347 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #1d4ed8;
+    --color-accent: #0ea5e9;
+    --color-accent-light: #38bdf8;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+  }
+
+  .animate-slide-down {
+    animation: slide-down 0.4s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.3s ease-out forwards;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+
+  .bg-grid {
+    background-image: linear-gradient(rgba(59, 130, 246, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59, 130, 246, 0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .bg-grid-dark {
+    background-image: linear-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(56, 189, 248, 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+/* ==================== Keyframes ==================== */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* === Sports car fast drive-in with brake marks === */
+@keyframes sports-car-drive {
+  0% {
+    transform: translateX(-140%) scaleX(1);
+  }
+  70% {
+    transform: translateX(0%) scaleX(1);
+  }
+  75% {
+    transform: translateX(2%) scaleX(0.97);
+  }
+  82% {
+    transform: translateX(-1%) scaleX(1.01);
+  }
+  88% {
+    transform: translateX(0.5%) scaleX(0.99);
+  }
+  100% {
+    transform: translateX(0%) scaleX(1);
+  }
+}
+
+/* Brake marks appear behind the car as it stops */
+@keyframes brake-marks {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  60% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  72% {
+    opacity: 0.8;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scaleX(1);
+  }
+}
+
+/* Business name drives in fast with brake marks */
+@keyframes name-drive-in {
+  0% {
+    transform: translateX(-200%);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(5%);
+    opacity: 1;
+  }
+  68% {
+    transform: translateX(-2%);
+  }
+  76% {
+    transform: translateX(1%);
+  }
+  84% {
+    transform: translateX(-0.5%);
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes name-brake-marks {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  55% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  65% {
+    opacity: 0.7;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 0.4;
+    transform: scaleX(1);
+  }
+}
+
+/* Hammer strike — shiny chrome hammer */
+@keyframes hammer-strike {
+  0%, 100% {
+    transform: rotate(-35deg) translateY(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: rotate(-35deg) translateY(0);
+  }
+  15% {
+    transform: rotate(8deg) translateY(3px);
+  }
+  35% {
+    transform: rotate(8deg) translateY(3px);
+  }
+  55% {
+    transform: rotate(8deg) translateY(3px);
+  }
+  75% {
+    transform: rotate(8deg) translateY(3px);
+  }
+}
+
+/* Dent pop — dent shrinks on each hit */
+@keyframes dent-pop {
+  0%, 14% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  16%, 34% {
+    transform: scale(0.7);
+    opacity: 0.7;
+  }
+  36%, 54% {
+    transform: scale(0.4);
+    opacity: 0.5;
+  }
+  56%, 74% {
+    transform: scale(0.15);
+    opacity: 0.3;
+  }
+  76%, 100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+/* Body shine sweep — brighter for light blue car */
+@keyframes shine-sweep {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(250%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+/* Sparkle bursts */
+@keyframes sparkle {
+  0%, 100% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+/* Business name reveal */
+@keyframes name-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+    letter-spacing: 0.5em;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    letter-spacing: 0.1em;
+  }
+}
+
+@keyframes tagline-fade {
+  0%, 50% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Wheel spin while driving */
+@keyframes wheel-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-1080deg); }
+}
+
+/* Logo fade in */
+@keyframes logo-fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Header backdrop transition — light theme */
+.header-scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 24px rgba(59, 130, 246, 0.08);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f0f9ff;
+}
+::-webkit-scrollbar-thumb {
+  background: #0ea5e9;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0284c7;
+}
